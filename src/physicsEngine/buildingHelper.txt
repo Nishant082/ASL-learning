@@ -1,0 +1,39 @@
+// Building Floor
+// ?
+// frontWall1
+// frontWall2
+// backWall
+// sideWall1
+// sideWall2
+// staircase1
+// staircaseFloor
+// staircase2
+// StaircaseBlocker
+// SecondFloor 
+
+// SecondFWall3
+// SecondFWall4
+// SecondFWall1
+// SecondfWall2
+
+// SFClass1 
+// SFClass2 
+// Banisters
+// SFFrontWall
+
+/**
+* Furnitures
+*/
+// 1F1C
+
+
+// 1F2C
+
+            
+// 2F1C
+
+
+// 2F2C
+
+
+// Env and others

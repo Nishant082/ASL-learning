@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASL Academy</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    <div class="progressBar">
+      <label id="progressLabel" for="progress-bar">Loading...</label>
+      <progress id="progress-bar" value="0" max="100"></progress>
+      <div class="bottomText">
+        <p id="btmText">Click to continue...</p>
+      </div>
+    </div> 
+    <canvas class="webgl"></canvas>
+
+    <div id="talkPrompt" style="display:none; position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); color: white; font-size: 20px;">
+        Press E to talk
+    </div>
+
+    <div id="dialogueBox" class="chat">
+        <div id="chats" class="chatbox"></div>
+        <div id="questConfirmation" class="buttonbox">
+            <button class="button" role="button" onclick="_handleQuestAnswer('yes')">Accept</button>
+            <button class="button" role="button" onclick="_handleQuestAnswer('no')">Reject</button>
+        </div>
+        <i class="bounceIcon"> &#9660;</i>
+    </div>
+
+    <div id="questUI">
+
+        <div class="container">
+            <div class="left-column">
+              <div class="topheader">
+                <button id="backButton" class="leftColButton" onclick="goBack()">&#8636; Go Back</button>
+                <p class="headerText"></p>
+              </div>
+              <div id="carousel">
+              </div>
+              <div class="gifButton">
+                <button class="leftColButton" onclick="showNextGif()">Next &#8640;</button>
+              </div>
+              <div class="detailSection">
+                <h5>Details on prediction: </h5><br/>
+                <p class="signDetails">
+                  
+                </p>
+              </div>
+            </div>
+            <div class="right-column">
+              <div class="top-section">
+                <video id="videoElement" autoplay playsinline></video>
+              </div>
+              <div class="bottom-section">
+                <div class="button-section">
+                  <button class="vidButton" id="startButton">Start Camera</button>
+                  <button class="vidButton" id="stopButton" disabled>Stop Camera</button>
+                </div>
+                <p class="predictPlaceholder">Sign to be performed: </p>
+                <div class="performedDetails-section">
+                  <p class="performPrediction"></p>
+                </div>
+              </div>
+            </div>
+        </div>  
+    </div>
+
+    <div id="transition-overlay"></div>
+
+    <script type="module" src="src/main.js"></script>
+    <script type="module" src="./src/model/mediapipe.js"></script>
+</body>
+</html>

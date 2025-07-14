@@ -1,0 +1,70 @@
+[
+    {
+        "id": 1,
+        "name": "#NPC1",
+        "sign": "Hello",
+        "position": {"x": -2, "y": 0.1, "z": 3.5},
+        "rotation": {"x": 0, "y": -0.3926990817, "z": 0},
+        "dialogues": [
+            "Why am I staring at the board you ask?",
+            "The developer couldn't figure out how to rotate properly lol.",
+            "I have a sign for you if you're interested.",
+            "Goodbye, hmm what a lovely board."
+        ],
+        "gifs": [
+            "/pictures/gifsFolder/NPC1-1.gif",
+            "/pictures/gifsFolder/NPC1-2.gif"    
+        ] 
+    },
+    {
+        "id": 2,
+        "name": "#NPC2",
+        "sign": "Goodbye",
+        "position": {"x": 1.4, "y": 0.1, "z": -1.5},
+        "rotation": {"x": 0, "y": 0, "z": 0},
+        "dialogues": [
+            "Sorry player no entry!",
+            "Why? The Creators were unable to add more content.",
+            "I can teach you a sign though.",
+            "Well see you later."
+        ],
+        "gifs": [
+            "/pictures/gifsFolder/NPC2-1.gif",
+            "/pictures/gifsFolder/NPC2-2.gif" 
+        ] 
+    },
+    {
+        "id": 3,
+        "name": "#NPC3",
+        "sign": "I/Me",
+        "position": {"x": 1.5, "y": 0.1, "z": 4},
+        "rotation": {"x": 0, "y": 180, "z": 0},
+        "dialogues": [
+            "I'm deez.",
+            "DEEZ NU... Sorry.",
+            "Oh you'd like to learn?",
+            "Later, Alligator."
+        ],
+        "gifs": [
+            "/pictures/gifsFolder/NPC3-1.gif",
+            "/pictures/gifsFolder/NPC3-2.gif" 
+        ] 
+    },
+    {
+        "id": 4,
+        "name": "#NPC4",
+        "sign": "Name",
+        "position": {"x": -0.5, "y": 0.1, "z": 1},
+        "rotation": {"x": 0, "y": 1.570796327, "z": 0},
+        "dialogues": [
+            "Hey. No going up the stairs!",
+            "Go do something else",
+            "What you wanna learn something? Sure",
+            "Ta Ta"
+        ],
+        "gifs": [
+            "/pictures/gifsFolder/NPC4-1.gif",
+            "/pictures/gifsFolder/NPC4-2.gif"     
+        ] 
+    }
+]

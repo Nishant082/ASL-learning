@@ -1,0 +1,415 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%; /* Ensure full height of the body */
+  margin: 0; /* Remove any default margin */
+  overflow: hidden;
+  color: #222831 !important;
+}
+
+.progressBar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+
+}
+
+#progress-bar {
+  width: 30%;
+  margin-top: 0.5rem;
+  height: 2%;
+  opacity: 1;
+  transition: all 0.6s ease-out;
+}
+
+.bottomText {
+  visibility: hidden; 
+  position: absolute; 
+  bottom: 50px;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}
+
+#btmText {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+  font-size: 32px; 
+  color: white;
+  opacity: 1;
+  transition: opacity 0.6s ease-out;
+}
+
+label {
+  color: #fff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 2rem;
+  opacity: 1;
+  transition: opacity 0.6s ease-out;
+}
+
+#transition-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 50%;
+  z-index: 9999;
+  transition: all 1s ease-in-out;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#transition-overlay.expand {
+  width: 300vmax;
+  height: 300vmax;
+  opacity: 1;
+  border-radius: 0;
+}
+
+#transition-overlay.shrink {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  border-radius: 50%;
+}
+
+.predictPlaceholder {
+  padding-left: 180px;
+  position: fixed;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+.performedDetails-section {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.performPrediction {
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: red;
+  font-size: 36px;
+  letter-spacing: 2px;
+  justify-content: center;
+}
+
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  pointer-events: auto;
+}
+
+.chat {
+  margin: 2%;
+  position: absolute;      /* Position it at the bottom */
+  bottom: 0;               /* Align it to the bottom of the screen */
+  height: 25vh;            /* Take up 25% of the screen height */
+  width: 95vw;             /* Take up 95% of the screen width */
+  display: flex;           /* Flexbox to center chatbox inside */
+  flex-direction: column;
+  justify-content: center; /* Horizontally center the chatbox */
+  align-items: center;     /* Vertically center the chatbox */
+  background: #4B5945;
+  border: 1px solid #4B5945;
+  border-radius: 8px;
+  box-shadow: 0 1px 0 1px #91AC8F,
+              inset 0 1px 0 1px #91AC8F,
+              0 0 0 1px #91AC8F,
+              inset 0 0 0 1px #91AC8F;
+  padding: 2%;  /* Added padding to the .chat container */
+  box-sizing: border-box; /* Ensure padding is included in total width/height */
+}
+
+.chatbox {
+  font-size: 24px;
+  font-family: 'Courier New', monospace;
+  color: #B2C9AD;
+  border-radius: 2px;
+  width: 100%;
+  height: 80%;
+  line-height: 16px;
+  position: relative;  /* Changed from absolute to relative for better layout control */
+  padding: 16px;  /* Added padding inside the .chatbox */
+}
+
+.buttonbox {
+  width: 100%;
+  height: 20%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  box-sizing: border-box; /* Ensure padding is included in total width/height */
+}
+
+.chat > i {
+  color: #91AC8F;
+  position: absolute;         
+  right: 25px;                
+  bottom: 20px;               
+  width: 25px;                   
+  height: 20px;                  
+  animation: bounce 0.3s ease-in-out infinite alternate; 
+  cursor: pointer;
+}
+
+.button {
+  align-items: center; 
+  background-color: #4B5945;
+  box-shadow: 0 0 0 1px #91AC8F,
+              inset 0 0 0 1px #91AC8F;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #B2C9AD;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  min-height: 1rem;
+  padding: 0.7% 2%;
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button:hover,
+.button:focus {
+  border-color: #91AC8F;
+  box-shadow: #B2C9AD;
+  color: #879883;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
+
+@keyframes bounce {
+  0% {
+      margin-bottom: 10px; /* Starting position */
+  }
+  100% {
+      margin-bottom: 15px; /* End position for bounce effect */
+  }
+}
+
+#questUI {
+  display: none;
+  background-color: #222831 !important;
+}
+
+/* Full viewport layout for the container */
+.container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+/* Left column: 30% width */
+.left-column {
+  position: relative;
+  background-color: #31363F;
+  width: 30%;
+  padding: 25px;
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); /* Inset border */
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+#carousel {
+  padding: 25px 25px 15px 25px;
+  height: 50%
+}
+
+.gifButton {
+  margin-right: 20px;
+  position: absolute;
+  right: 10px;
+}
+
+/* Right column: 70% width, divided into top and bottom sections */
+.right-column {
+  display: flex;
+  flex-direction: column; /* Stack top and bottom vertically */
+  width: 70%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Top section should take 80% of the available height */
+.top-section {
+  background-image: url("/pictures/video-bgPlaceholder.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  background-color: #31363F;
+  flex: 4; /* This section takes up 80% of the available height */
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6);
+  position: relative; 
+}
+
+.topheader {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;  
+  gap: 10%;
+}
+
+.leftColButton {
+  color: #EEEEEE;
+  border: none;
+  background: none;
+}
+
+.leftColButton:hover {
+  color: #b8b8b8;
+}
+
+.headerText {
+  font-family: 'Gill Sans', sans-serif;
+  color: #76ABAE;
+}
+
+.detailSection {
+  padding-top: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-family: 'Gill Sans', sans-serif;
+  color: #EEEEEE;
+}
+
+/* Bottom section should take 20% of the available height */
+.bottom-section {
+  display: flex;
+  flex-direction: row;
+  background-color: #31363F;
+  flex: 1; /* This will take up 20% of the available space */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.6); /* Inset border effect */
+}
+
+.gif-slide {
+  width: 100%;
+  height: 100%;
+  object-fit:inherit;
+  display: none; /* Initially hidden */
+}
+
+.button-section {
+  display: flex;
+  flex-direction: column;
+  gap: 15%;
+  padding: 8px 10px;
+  justify-content: center;
+  border-right: 5px double #222831;
+  width: 18%;
+}
+
+.performedDetails-section {
+  width: 72%;
+}
+
+.vidButton {
+  align-items: center;
+  background-color: #31363F;
+  border: 2px solid #76ABAE;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #EEEEEE;
+  display: flex;
+  font-family: 'Gill Sans', sans-serif;
+  font-size: 16px;
+  height: 32px;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 10px;
+  position: relative;
+  text-align: center;
+}
+
+.vidButton:hover {
+  background-color: #1e2229;
+  color: #cbcbcb;
+}
+
+.vidButton:active {
+background-color: #3f4146;
+outline: 0;
+}
+
+.vidButton:disabled {
+background-color: #2a3030;
+color: #4f4e4e;
+}
+
+#dialogueBox {
+  display: none;
+}
+
+#questConfirmation {
+  display: none;
+}
+
+#videoElement {
+  width: 100%;
+  height: 100%;
+  position: absolute; 
+  object-fit:inherit;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+}
+
+#canvasOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  pointer-events: none; /* Prevent the canvas from blocking user interactions */
+}
